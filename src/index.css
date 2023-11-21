@@ -20,10 +20,18 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: linear-gradient(
+    to bottom,
+    #ffcc00,
+    #ff6600
+  ); /* Orange to Yellow gradient */
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: linear-gradient(
+    to bottom,
+    #cc9900,
+    #ff3300
+  ); /* Darker Orange to Darker Yellow gradient on hover */
 }

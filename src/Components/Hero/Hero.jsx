@@ -102,7 +102,10 @@ const Hero = () => {
             className=" flex gap-4 items-center text-white bg-gradient-to-br from-pink-500 to-orange-400 group-hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-semibold rounded-xl lg:text-lg px-5 py-3.5 text-center me-2 duration-300"
           >
             Latest Collection
-            <FaLongArrowAltRight size={20} className="group-hover:rotate-90 duration-300"/>
+            <FaLongArrowAltRight
+              size={20}
+              className="group-hover:rotate-90 duration-300"
+            />
           </button>
         </div>
       </div>
@@ -112,6 +115,7 @@ const Hero = () => {
         slidesPerView={3}
         navigation
         // autoplay={{ delay: 1000 }} ---> not working!
+        autoplay={{ delay: 1000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
