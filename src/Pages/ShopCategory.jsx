@@ -12,12 +12,9 @@ const ShopCategory = (props) => {
         <p>
           <span>Showing 1-12</span> out of 36 products
         </p>
-        <button
-          type="button"
-          class="flex gap-2 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-3 py-1"
-        >
-          Sort By <RxDropdownMenu size={20} />
-        </button>
+        <div className="flex gap-2">
+          <p>Sort by</p> <RxDropdownMenu size={20} />
+        </div>
       </div>
       <div className="grid grid-flow-row lg:grid-cols-4 md:grid-cols-2 justify-center">
         {all_product.map((item, i) => {
@@ -38,10 +35,10 @@ const ShopCategory = (props) => {
           }
         })}
       </div>
-      <div className="flex justify-center py-10">
+      <div className="flex justify-center py-5">
         <a
           href="#_"
-          class="relative inline-flex items-center justify-center px-16 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group"
+          class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group"
         >
           <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-purple-500 group-hover:translate-x-0 ease">
             <svg
@@ -60,9 +57,9 @@ const ShopCategory = (props) => {
             </svg>
           </span>
           <span class="absolute flex items-center justify-center w-full h-full text-purple-500 transition-all duration-300 transform group-hover:translate-x-full ease">
-            Button Text
+            See More
           </span>
-          <span class="relative invisible">More</span>
+          <span class="relative invisible">Button Text</span>
         </a>
       </div>
     </div>
