@@ -10,6 +10,7 @@ import Footer from "./Components/Footer/Footer";
 import banner_men from "../../frontend/src/Components/Assets/banner_mens.png";
 import banner_women from "../../frontend/src/Components/Assets/banner_women.png";
 import banner_kids from "../../frontend/src/Components/Assets/banner_kids.png";
+import CartItems from "./Components/CartItems/CartItems";
 
 function App() {
   return (
