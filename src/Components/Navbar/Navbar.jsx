@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../Assets/logo.png";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../../Context/ShopContextProvider";
 
 const Navbar = () => {
+  const { getTotalCartItems } = useContext(ShopContext);
   return (
     <div className=" navbar top-0 backdrop-filter backdrop-blur-lg bg-opacity-75 shadow-lg lg:px-10 sticky z-10">
       <div className="navbar-start">
@@ -129,10 +131,10 @@ const Navbar = () => {
           </button>
         </Link>
         <Link to="/cart">
-          <div class="relative">
+          <div className="relative">
             <FaCartShopping size={30} />
-            <span class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white rounded-full px-2 text-xs">
-              0
+            <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white rounded-full px-2 text-xs">
+              {getTotalCartItems()}
             </span>
           </div>
         </Link>

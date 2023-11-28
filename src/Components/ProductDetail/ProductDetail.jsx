@@ -1,12 +1,15 @@
 import React from "react";
-import { HiPlusCircle, HiMinusCircle } from "react-icons/hi";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
 import { useContext } from "react";
 import { ShopContext } from "../../Context/ShopContextProvider";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetail = (props) => {
+  const navigate = useNavigate();
   const { product } = props;
-  const { addToCart } = useContext(ShopContext);
+  const { cartItems, increaseQuantity, decreaseQuantity, addToCart } =
+    useContext(ShopContext);
+
   return (
     <div className="md:px-20 px-10 pb-10">
       <div className="lg:col-gap-10 xl:col-gap-16 mt-8 grid grid-cols-1 gap-12 lg:mt-12 lg:grid-cols-5">
@@ -164,35 +167,47 @@ const ProductDetail = (props) => {
             <p className="font-bold mb-2">Quantity:</p>
             <div className="flex items-center max-w-xs">
               <button
-                // onClick={handleDecrease}
-                className="text-gray-500 dark:text-gray-400 focus:outline-none"
+                className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                onClick={() => decreaseQuantity(product.id)}
               >
-                <HiMinusCircle size={25} />
+                {" "}
+                -{" "}
               </button>
               <input
-                className="w-12 text-center border-t border-b border-gray-300 dark:border-gray-600 focus:outline-none"
+                className="h-8 w-8 border bg-white text-center text-xs outline-none"
                 type="number"
-                // value={quantity}
-                placeholder="0"
+                value={cartItems[product.id]}
+                min="1"
+                readOnly
               />
               <button
-                // onClick={handleIncrease}
-                className="text-gray-500 dark:text-gray-400 focus:outline-none"
+                className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                onClick={() => increaseQuantity(product.id)}
               >
-                <HiPlusCircle size={25} />
+                {" "}
+                +{" "}
               </button>
             </div>
           </div>
           <hr />
           {/* add-to-cart */}
-          <div className="py-10 flex justify-center">
-            <button
-              onClick={() => {
-                addToCart(product.id);
-              }}
+          <div className="py-10 flex justify-start space-x-4">
+            {/* <button
+              onClick={() => handleAddToCart(product.id)}
               className="uppercase w-full py-2 shadow-lg text-xl font-bold text-center text-white transition-all duration-300 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 ease-in-out px-9 md:w-auto rounded-md"
             >
               Add To Cart
+            </button> */}
+
+            <button
+              onClick={() => {
+                // Replace '/checkout' with the actual path to your checkout page
+                addToCart(product.id);
+                navigate("/cart");
+              }}
+              className="uppercase w-full py-2 shadow-lg text-xl font-bold text-center text-white transition-all duration-300 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 ease-in-out px-9 md:w-auto rounded-md"
+            >
+              অর্ডার করুন
             </button>
           </div>
         </div>

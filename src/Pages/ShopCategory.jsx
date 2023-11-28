@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../Context/ShopContextProvider";
-import { RxDropdownMenu } from "react-icons/rx";
+import { GrSort } from "react-icons/gr";
 import Item from "../Components/Item/Item";
 
 const ShopCategory = (props) => {
@@ -13,7 +13,12 @@ const ShopCategory = (props) => {
           <span>Showing 1-12</span> out of 36 products
         </p>
         <div className="flex gap-2">
-          <p>Sort by</p> <RxDropdownMenu size={20} />
+          <button
+            type="button"
+            className="py-1 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border   shadow-lg"
+          >
+            <p>Sort by</p> <GrSort size={20} />
+          </button>
         </div>
       </div>
       <div className="grid grid-flow-row lg:grid-cols-4 md:grid-cols-2 justify-center">
