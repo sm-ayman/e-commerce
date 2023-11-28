@@ -7,7 +7,6 @@ const CartItems = () => {
     all_product,
     cartItems,
     removeFromCart,
-    addToCart,
     clearCart,
     subtotal,
     clearSpecificItem,
