@@ -1,6 +1,7 @@
 import React, { createContext } from "react";
 import all_product from "../Components/Assets/all_product";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ShopContext = createContext(null);
 
@@ -55,7 +56,7 @@ const ShopContextProvider = (props) => {
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     }
   };
-
+  
   const contextValue = {
     all_product,
     cartItems,

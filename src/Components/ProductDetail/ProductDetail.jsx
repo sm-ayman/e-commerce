@@ -6,9 +6,20 @@ import { useNavigate } from "react-router-dom";
 
 const ProductDetail = (props) => {
   const navigate = useNavigate();
+  const handleOrderNow = () => {
+    if (Object.values(cartItems).some((count) => count > 0)) {
+      navigate("/cart");
+    } else {
+      alert("Please add a product to the cart before placing an order.");
+    }
+  };
   const { product } = props;
-  const { cartItems, increaseQuantity, decreaseQuantity, addToCart } =
-    useContext(ShopContext);
+  const {
+    cartItems,
+    increaseQuantity,
+    decreaseQuantity,
+    addToCart,
+  } = useContext(ShopContext);
 
   return (
     <div className="md:px-20 px-10 pb-10">
@@ -193,19 +204,15 @@ const ProductDetail = (props) => {
           {/* add-to-cart */}
           <div className="py-10 flex justify-start space-x-4">
             {/* <button
-              onClick={() => handleAddToCart(product.id)}
+              onClick={() => addToCart(product.id)}
               className="uppercase w-full py-2 shadow-lg text-xl font-bold text-center text-white transition-all duration-300 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 ease-in-out px-9 md:w-auto rounded-md"
             >
               Add To Cart
             </button> */}
 
             <button
-              onClick={() => {
-                // Replace '/checkout' with the actual path to your checkout page
-                addToCart(product.id);
-                navigate("/cart");
-              }}
-              className="uppercase w-full py-2 shadow-lg text-xl font-bold text-center text-white transition-all duration-300 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 ease-in-out px-9 md:w-auto rounded-md"
+              onClick={handleOrderNow}
+              className="uppercase w-full py-2 shadow-lg text-xl font-bold text-center text-white transition-all duration-300 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 ease-in-out px-9 md:w-auto rounded-md"
             >
               অর্ডার করুন
             </button>
